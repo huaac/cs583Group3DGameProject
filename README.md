@@ -15,4 +15,4 @@ Goals For Each Person:
 - Vincent --> UI and dialogue system
 - Sid --> Find 3d assets that fit our game and scripting
 
-Video Link of Current Game:
+Video Link of Current Game: https://www.youtube.com/watch?v=MKOe33SFfvI
