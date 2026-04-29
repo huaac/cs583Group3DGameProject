@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 883c9693f101c3047a0f409fc20019eb, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 45837351bfa504d4fa6f223fa79d5ab8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -155,8 +159,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba75555e20f960a44a2d34f62c04698f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  moveSpeed: 0
+  groundDrag: 0
   jumpForce: 6
+  jumpCooldown: 0
+  airMultiplier: 0
+  readyToJump: 0
+  jumpKey: 32
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  orientation: {fileID: 0}
 --- !u!114 &8390700353683141130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +195,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fffbd24cbbe94409c82bb10fdf3331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spikeSound: {fileID: 0}
+  fallSound: {fileID: 0}
