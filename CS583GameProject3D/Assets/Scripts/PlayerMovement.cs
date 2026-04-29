@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
+    public Animator animController;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -62,12 +64,23 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        Debug.Log(horizontalInput);
+
         //when to jump
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if(horizontalInput == 0 && verticalInput == 0)
+        {
+            animController.SetInteger("playeranims",0);
+        }
+        else
+        {
+            animController.SetInteger("playeranims",1);
         }
     }
 

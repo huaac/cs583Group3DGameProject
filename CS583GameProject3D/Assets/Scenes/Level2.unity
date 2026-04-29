@@ -2059,7 +2059,10 @@ PrefabInstance:
     - {fileID: 4651440313907190808, guid: c35a57d1e2c751d4781226e1da3a24f7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4688196162290569827, guid: c35a57d1e2c751d4781226e1da3a24f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1248782203}
   m_SourcePrefab: {fileID: 100100000, guid: c35a57d1e2c751d4781226e1da3a24f7, type: 3}
 --- !u!4 &1026871580 stripped
 Transform:
@@ -2209,6 +2212,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4880954958298278, guid: ae333be69603eb24aa39eefacc0cbec1, type: 3}
   m_PrefabInstance: {fileID: 9037523761950526839}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1248782198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4688196162290569827, guid: c35a57d1e2c751d4781226e1da3a24f7, type: 3}
+  m_PrefabInstance: {fileID: 968559152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1248782203
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248782198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 45837351bfa504d4fa6f223fa79d5ab8, type: 3}
+  m_Controller: {fileID: 9100000, guid: 5635a00a6be506445a2c2354c360eb59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1270229298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1093287664803582, guid: ef84976aa14fc6e49a7e8c864191dc46, type: 3}
@@ -2464,6 +2494,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   orientation: {fileID: 1278776187}
+  animController: {fileID: 1544284790}
 --- !u!95 &1544284790
 Animator:
   serializedVersion: 7
