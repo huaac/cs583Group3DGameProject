@@ -1,0 +1,47 @@
+using UnityEngine;
+using System.Collections;
+
+public class FallingTrap : MonoBehaviour
+{
+    public Rigidbody trapRb;
+
+    public float fallDelay = 0.5f;
+
+    public string trapID;
+
+    private bool triggered = false;
+
+    void Start()
+    {
+        if (PlayerPrefs.GetInt(trapID, 0) == 1)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (triggered) return;
+
+        if (other.CompareTag("Player"))
+        {
+            triggered = true;
+
+            PlayerPrefs.SetInt(trapID, 1);
+
+            StartCoroutine(Fall());
+        }
+    }
+
+    IEnumerator Fall()
+    {
+        yield return new WaitForSeconds(fallDelay);
+
+        trapRb.isKinematic = false;
+        trapRb.useGravity = true;
+
+        yield return new WaitForSeconds(2f);
+
+        gameObject.SetActive(false);
+    }
+}
