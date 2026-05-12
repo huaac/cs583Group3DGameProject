@@ -7,7 +7,7 @@ public class Dialog : MonoBehaviour
 {
     public GameObject dialogText;
     private string curText = "";
-    private float secsPerChar = 0.1f;
+    private float secsPerChar = 0.05f;
     private float timeDialogDisappears = 3f;
     private Coroutine dialogPlaying;
     private bool playing = false;
@@ -16,6 +16,15 @@ public class Dialog : MonoBehaviour
 
     [TextArea]
     public string startingGameText;
+
+    [TextArea]
+    public string fail10Text;
+    [TextArea]
+    public string fail20Text;
+    [TextArea]
+    public string fail50Text;
+    [TextArea]
+    public string fail100Text;
     void Start()
     {
         if (textMesh == null)
@@ -26,7 +35,27 @@ public class Dialog : MonoBehaviour
         {
             background = dialogText.transform.parent.GetComponent<Image>();
         }
-        StartCoroutine(UpdateText(startingGameText));
+        if (PlayerInfo.firstLoad)
+        {
+            StartCoroutine(UpdateText(startingGameText));
+            PlayerInfo.firstLoad = false;
+        }
+        else if (PlayerInfo.numFails == 10)
+        {
+            StartCoroutine(UpdateText(fail10Text));
+        }
+        else if (PlayerInfo.numFails == 20)
+        {
+            StartCoroutine(UpdateText(fail20Text));
+        }
+        else if (PlayerInfo.numFails == 50)
+        {
+            StartCoroutine(UpdateText(fail50Text));
+        }
+        else if (PlayerInfo.numFails == 100)
+        {
+            StartCoroutine(UpdateText(fail100Text));
+        }
     }
     IEnumerator PlayDialog()
     {
