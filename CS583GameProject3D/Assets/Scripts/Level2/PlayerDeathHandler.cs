@@ -5,6 +5,7 @@ public class PlayerDeathHandler : MonoBehaviour
 {
     public void Die()
     {
+        PlayerInfo.numFails++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
