@@ -13,6 +13,7 @@ public class Dialog : MonoBehaviour
     private bool playing = false;
     private TextMeshProUGUI textMesh;
     private Image background;
+    public AudioSource typingSound;
 
     [TextArea]
     public string startingGameText;
@@ -63,6 +64,8 @@ public class Dialog : MonoBehaviour
         foreach (char c in curText)
         {
             textMesh.text += c;
+            typingSound.pitch = Random.Range(1f, 2f); 
+            typingSound.Play();
             textMesh.ForceMeshUpdate();
             if (textMesh.textInfo.lineCount > 1)
             {
