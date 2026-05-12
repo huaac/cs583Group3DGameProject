@@ -7,7 +7,7 @@ public class Dialog : MonoBehaviour
 {
     public GameObject dialogText;
     private string curText = "";
-    private float secsPerChar = 0.1f;
+    private float secsPerChar = 0.05f;
     private float timeDialogDisappears = 3f;
     private Coroutine dialogPlaying;
     private bool playing = false;
