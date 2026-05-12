@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f), grounded ? Color.green : Color.red);
         //ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.6f, whatIsGround);
         Debug.Log(grounded);
         MyInput();
         SpeedControl();
@@ -74,13 +74,20 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if(horizontalInput == 0 && verticalInput == 0)
+        // Jump animation
+        if (!grounded)
         {
-            animController.SetInteger("playeranims",0);
+            animController.SetInteger("playeranims", 2);
         }
+        // Idle
+        else if (horizontalInput == 0 && verticalInput == 0)
+        {
+            animController.SetInteger("playeranims", 0);
+        }
+        // Run
         else
         {
-            animController.SetInteger("playeranims",1);
+            animController.SetInteger("playeranims", 1);
         }
     }
 
