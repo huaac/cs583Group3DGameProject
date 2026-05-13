@@ -142,8 +142,8 @@ public class PhysicsButton : MonoBehaviour
 
     IEnumerator DeathDelay()
     {
-        yield return new WaitForSeconds(2f);
-
+        PlayerInfo.level2WrongButtonTriggered = true;
+        yield return new WaitForSeconds(1f);
         FindFirstObjectByType<PlayerDeathHandler>().Die();
     }
 

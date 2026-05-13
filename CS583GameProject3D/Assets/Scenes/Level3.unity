@@ -5060,7 +5060,7 @@ PrefabInstance:
       objectReference: {fileID: 1744928014}
     - target: {fileID: 7960062617191125649, guid: de430a19377c4bd4a840739d8a993b61, type: 3}
       propertyPath: startingGameText
-      value: Might as well just give up and do nothing.
+      value: Might as well just give up now and stop moving.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -42,6 +42,11 @@ public class Dialog : MonoBehaviour
             StartCoroutine(UpdateText(startingGameText));
             PlayerInfo.firstLoad = false;
         }
+        else if (PlayerInfo.level2WrongButtonTriggered)
+        {
+            StartCoroutine(UpdateText("Wrong one!"));
+            PlayerInfo.level2WrongButtonTriggered = false;
+        }
         else if (PlayerInfo.numFails == 10)
         {
             StartCoroutine(UpdateText(fail10Text));
