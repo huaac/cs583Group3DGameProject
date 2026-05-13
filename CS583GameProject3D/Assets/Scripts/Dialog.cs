@@ -26,6 +26,10 @@ public class Dialog : MonoBehaviour
     public string fail50Text;
     [TextArea]
     public string fail100Text;
+
+    /*
+        Plays the starting message upon loading up a scene
+    */
     void Start()
     {
         
@@ -64,6 +68,11 @@ public class Dialog : MonoBehaviour
             StartCoroutine(UpdateText(fail100Text));
         }
     }
+
+    /*
+        Adds character by character to the dialog UI
+        Returns: the coroutine to play the dialog
+    */
     IEnumerator PlayDialog()
     {
         playing = true;
@@ -83,6 +92,12 @@ public class Dialog : MonoBehaviour
         textMesh.text = "";
         background.enabled = false;
     }
+
+    /*
+        Plays the new dialog that was triggered
+        Params: the new dialog to play
+        Returns: the coroutine to play the dialog
+    */
     public IEnumerator UpdateText(string text)
     {
         curText = text;
