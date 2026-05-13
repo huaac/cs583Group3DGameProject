@@ -23,4 +23,9 @@ public class ChangeScenes : MonoBehaviour
         PlayerInfo.dialogTriggered = new Dictionary<string, bool>();
         SceneManager.LoadScene("MainMenu");
     } 
+
+    public static void QuitGame()
+    {
+        Application.Quit();
+    } 
 }
