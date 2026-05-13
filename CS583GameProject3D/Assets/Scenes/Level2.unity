@@ -4242,9 +4242,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1735195211790908271, guid: 8ea200c748c410a44ab961d842c09645, type: 3}
+      propertyPath: sceneToLoad
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735195211790908271, guid: 8ea200c748c410a44ab961d842c09645, type: 3}
       propertyPath: pressedSound
       value: 
       objectReference: {fileID: 530278904}
+    - target: {fileID: 1735195211790908271, guid: 8ea200c748c410a44ab961d842c09645, type: 3}
+      propertyPath: loadNextScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1735195211790908271, guid: 8ea200c748c410a44ab961d842c09645, type: 3}
       propertyPath: buttonTopRigid
       value: 
@@ -5778,6 +5786,10 @@ PrefabInstance:
     - target: {fileID: 5829532229611090450, guid: c6133dc690fcbe74a8fa70855d19ebf4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5988872970841839793, guid: c6133dc690fcbe74a8fa70855d19ebf4, type: 3}
+      propertyPath: jumpForce
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6069811279921203438, guid: c6133dc690fcbe74a8fa70855d19ebf4, type: 3}
       propertyPath: m_LocalPosition.x
