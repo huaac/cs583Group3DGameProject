@@ -150,7 +150,7 @@ public class PhysicsButton : MonoBehaviour
     IEnumerator LoadSceneAfterDelay()
     {
         yield return new WaitForSeconds(1f);
-
+        PlayerInfo.firstLoad = true;
         SceneManager.LoadScene(sceneToLoad);
     }
 }

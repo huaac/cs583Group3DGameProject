@@ -32,6 +32,7 @@ public class KeySwap : MonoBehaviour
         {
             Debug.Log("Key collected!");
             gameObject.SetActive(false);
+            PlayerInfo.firstLoad = true;
             SceneManager.LoadScene("Level2");
         }
     }

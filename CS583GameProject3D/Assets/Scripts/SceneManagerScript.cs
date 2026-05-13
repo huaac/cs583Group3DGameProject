@@ -7,6 +7,7 @@ public class SceneManagerScript : MonoBehaviour
 {
    public void LoadScene4()
    {
+       PlayerInfo.firstLoad = true;
        SceneManager.LoadScene("Level4");
    }
 }

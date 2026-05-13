@@ -1040,7 +1040,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 677881b9427e8d9428b574751ece710b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3569,6 +3569,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   orientation: {fileID: 1278776187}
+  isMoving: 0
 --- !u!95 &1544284790
 Animator:
   serializedVersion: 7
@@ -4077,6 +4078,10 @@ PrefabInstance:
     - target: {fileID: 135080278922917530, guid: de430a19377c4bd4a840739d8a993b61, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213986293145938631, guid: de430a19377c4bd4a840739d8a993b61, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 5366578658913461726, guid: de430a19377c4bd4a840739d8a993b61, type: 3}
       propertyPath: m_Pivot.x
