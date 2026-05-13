@@ -6,4 +6,8 @@ public class ChangeScenes : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
     }
+    public static void endGame()
+    {
+        SceneManager.LoadScene("Finish");
+    }
 }

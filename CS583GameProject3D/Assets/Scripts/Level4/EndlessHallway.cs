@@ -52,7 +52,6 @@ public class EndlessHallway : MonoBehaviour
     //spawns the 2nd to last section of the hallway at the position in front of the 2nd section
     public void SpawnNextSection()
     {
-        Debug.LogError("GameObject limit has been reached!");
         Vector3 spawnPos = new Vector3(
             repeatedSectionPrefab.transform.position.x,
             repeatedSectionPrefab.transform.position.y,
