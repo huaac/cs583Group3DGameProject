@@ -15,9 +15,9 @@ public class FallingTrap : MonoBehaviour
     {
         trapID = gameObject.name;
 
-        if (PlayerPrefs.GetInt(trapID, 0) == 1)
+        if (PlayerInfo.level2trapTriggered == true)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
@@ -28,7 +28,7 @@ public class FallingTrap : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             triggered = true;
-
+            PlayerInfo.level2trapTriggered = true;
             PlayerPrefs.SetInt(trapID, 1);
             PlayerPrefs.Save();
 
