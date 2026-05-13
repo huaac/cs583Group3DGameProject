@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class FallingTrap : MonoBehaviour
 {
@@ -13,9 +14,9 @@ public class FallingTrap : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetInt(trapID, 0) == 1)
+        if (PlayerInfo.level2trapTriggered)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
@@ -27,7 +28,7 @@ public class FallingTrap : MonoBehaviour
         {
             triggered = true;
 
-            PlayerPrefs.SetInt(trapID, 1);
+            PlayerInfo.level2trapTriggered = true;
 
             StartCoroutine(Fall());
         }
