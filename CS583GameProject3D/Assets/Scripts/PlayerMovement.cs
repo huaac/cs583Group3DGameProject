@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animController;
 
+    //for the reveal button script
+    public bool isMoving;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
         rb.freezeRotation = true;
         readyToJump = true;
+
+        isMoving = false;
     }
 
     private void Update()
@@ -86,11 +91,13 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput == 0 && verticalInput == 0)
         {
             animController.SetInteger("playeranims", 0);
+            isMoving = false;
         }
         // Run
         else
         {
             animController.SetInteger("playeranims", 1);
+            isMoving = true;
         }
     }
 
