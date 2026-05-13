@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EndlessHallway : MonoBehaviour
@@ -6,6 +7,7 @@ public class EndlessHallway : MonoBehaviour
     public Transform player;
     public GameObject repeatedSectionPrefab;
     public Transform endPiece;
+    public Transform killZone;
 
     [Header("Settings")]
     private float sectionLength = 15;
@@ -28,12 +30,27 @@ public class EndlessHallway : MonoBehaviour
     
     void Update()
     {
-        MoveEndPiece();
+        if (PlayerInfo.dialogTriggered.ContainsKey("Level4NeverendingTunnel4"))
+        {
+            if (PlayerInfo.dialogTriggered["Level4NeverendingTunnel4"] == false)
+            {
+                MoveEndPiece();
+            }
+            else
+            {
+                
+            }
+        }
+        else
+        {
+            MoveEndPiece();
+        }
     }
 
     //spawns the 2nd to last section of the hallway at the position in front of the 2nd section
     public void SpawnNextSection()
     {
+        Debug.LogError("GameObject limit has been reached!");
         Vector3 spawnPos = new Vector3(
             repeatedSectionPrefab.transform.position.x,
             repeatedSectionPrefab.transform.position.y,
@@ -52,5 +69,7 @@ public class EndlessHallway : MonoBehaviour
         Vector3 endPos = endPiece.position;
         endPos.z = player.position.z + endDistanceAhead;
         endPiece.position = endPos;
+        endPos.y = -6.4f;
+        killZone.position = endPos;
     }
 }
