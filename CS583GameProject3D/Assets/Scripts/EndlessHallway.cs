@@ -8,6 +8,7 @@ public class EndlessHallway : MonoBehaviour
     public GameObject repeatedSectionPrefab;
     public Transform endPiece;
     public Transform killZone;
+    public GameObject errorMessage;
 
     [Header("Settings")]
     private float sectionLength = 15;
@@ -16,6 +17,7 @@ public class EndlessHallway : MonoBehaviour
 
     private float nextSpawnZ;
     private int spawnedSections;
+    private bool endReached = false;
 
     //sets variables
     void Start()
@@ -38,7 +40,7 @@ public class EndlessHallway : MonoBehaviour
             }
             else
             {
-                
+                endOfHallReached();
             }
         }
         else
@@ -71,5 +73,14 @@ public class EndlessHallway : MonoBehaviour
         endPiece.position = endPos;
         endPos.y = -6.4f;
         killZone.position = endPos;
+    }
+
+    void endOfHallReached()
+    {
+        if (endReached == false)
+        {
+            endReached = true;
+            errorMessage.SetActive(true);
+        }
     }
 }
