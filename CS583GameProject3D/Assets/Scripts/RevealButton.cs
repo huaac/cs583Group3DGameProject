@@ -18,6 +18,7 @@ public class RevealButton : MonoBehaviour
     }
 
     // Update is called once per frame
+    // if player doesnt move for 10 seconds, then reveal button closer to the player and hides other button
     void Update()
     {
         timer += Time.deltaTime;

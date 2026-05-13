@@ -62,11 +62,13 @@ public class PlayerMovement : MonoBehaviour
         else {rb.linearDamping = 0;}
     }
 
+    //handles moving player
     private void FixedUpdate()
     {
         MovePlayer();
     }
 
+    //checks input of the player
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -85,18 +87,18 @@ public class PlayerMovement : MonoBehaviour
         // Jump animation
         if (!grounded)
         {
-            animController.SetInteger("playeranims", 2);
+            animController.SetInteger("playeranims", 2); //changes to jump anim
         }
         // Idle
         else if (horizontalInput == 0 && verticalInput == 0)
         {
-            animController.SetInteger("playeranims", 0);
+            animController.SetInteger("playeranims", 0); //changes to idle anim
             isMoving = false;
         }
         // Run
         else
         {
-            animController.SetInteger("playeranims", 1);
+            animController.SetInteger("playeranims", 1); //changes to run anim
             isMoving = true;
         }
     }
@@ -117,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // makes it so speed of player is capped
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
@@ -129,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // moves character vertically
     private void Jump()
     {
         //reset y velocity to make sure we always jump at same height
@@ -136,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
+    // changes bool jump
     private void ResetJump()
     {
         readyToJump = true;

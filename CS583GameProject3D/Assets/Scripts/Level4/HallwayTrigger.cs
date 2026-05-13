@@ -6,6 +6,7 @@ public class HallwayTrigger : MonoBehaviour
 
     private bool triggered = false;
 
+    //if player hits the trigger, clone the 2nd to last hallway
     private void OnTriggerEnter(Collider other)
     {
         if (triggered) return;

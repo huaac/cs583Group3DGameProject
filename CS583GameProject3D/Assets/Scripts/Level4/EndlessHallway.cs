@@ -29,7 +29,7 @@ public class EndlessHallway : MonoBehaviour
         Debug.Log(nextSpawnZ);
     }
 
-    
+    // if player hits dialouge trigger, stopp moving hallway, otherwise keep moving hallway
     void Update()
     {
         if (PlayerInfo.dialogTriggered.ContainsKey("Level4NeverendingTunnel4"))
@@ -74,6 +74,7 @@ public class EndlessHallway : MonoBehaviour
         killZone.position = endPos;
     }
 
+    // stops moving the end of the hallway
     void endOfHallReached()
     {
         if (endReached == false)

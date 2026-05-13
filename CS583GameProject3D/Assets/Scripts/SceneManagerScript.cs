@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
  
 public class SceneManagerScript : MonoBehaviour
 {
+    // loads scene lvl4
    public void LoadScene4()
    {
        PlayerInfo.firstLoad = true;

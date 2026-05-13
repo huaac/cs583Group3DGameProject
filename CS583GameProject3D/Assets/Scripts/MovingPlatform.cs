@@ -13,6 +13,7 @@ public class MovingPlatform : MonoBehaviour
         target = pointB.position;
     }
 
+    //switches the target for the platform to go to and moves platform in that directon
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
