@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class Dialog : MonoBehaviour
 {
     public GameObject dialogText;
-    private string curText = "";
+    private static string curText = "";
     private float secsPerChar = 0.05f;
-    private float timeDialogDisappears = 3f;
-    private Coroutine dialogPlaying;
-    private bool playing = false;
-    private TextMeshProUGUI textMesh;
-    private Image background;
+    private static float timeDialogDisappears = 3f;
+    private static Coroutine dialogPlaying;
+    private static bool playing = false;
+    private static TextMeshProUGUI textMesh;
+    private static Image background;
+    public AudioSource typingSound;
 
     [TextArea]
     public string startingGameText;
@@ -27,6 +28,7 @@ public class Dialog : MonoBehaviour
     public string fail100Text;
     void Start()
     {
+        
         if (textMesh == null)
         {
             textMesh = dialogText.GetComponent<TextMeshProUGUI>();
@@ -63,11 +65,11 @@ public class Dialog : MonoBehaviour
         foreach (char c in curText)
         {
             textMesh.text += c;
-            textMesh.ForceMeshUpdate();
+            typingSound.pitch = Random.Range(1f, 2f); 
+            typingSound.Play();
             if (textMesh.textInfo.lineCount > 1)
             {
                 textMesh.text = textMesh.text.Substring(1);
-                textMesh.ForceMeshUpdate();
             }
             yield return new WaitForSeconds(secsPerChar);
         }
@@ -85,16 +87,15 @@ public class Dialog : MonoBehaviour
             if (playing)
             {
                 textMesh.text += "—";
-            if (textMesh.textInfo.lineCount > 1)
-            {
-                textMesh.text = textMesh.text.Substring(1);
-                textMesh.ForceMeshUpdate();
-            }
+                if (textMesh.textInfo.lineCount > 1)
+                {
+                    textMesh.text = textMesh.text.Substring(1);
+                }
                 yield return new WaitForSeconds(secsPerChar);
             }
+            
             textMesh.text = "";
         }
-        
         background.enabled = true;
         dialogPlaying = StartCoroutine(PlayDialog());
     }

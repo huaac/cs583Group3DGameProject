@@ -1,0 +1,56 @@
+using UnityEngine;
+
+public class EndlessHallway : MonoBehaviour
+{
+    [Header("References")]
+    public Transform player;
+    public GameObject repeatedSectionPrefab;
+    public Transform endPiece;
+
+    [Header("Settings")]
+    private float sectionLength = 15;
+    public float endDistanceAhead = 60f;
+    public int startingSections = 3;
+
+    private float nextSpawnZ;
+    private int spawnedSections;
+
+    //sets variables
+    void Start()
+    {
+        spawnedSections = startingSections;
+        nextSpawnZ = sectionLength * startingSections;
+        //nextSpawnZ += nextSpawnZ;
+        MoveEndPiece();
+        Debug.Log(nextSpawnZ);
+    }
+
+    
+    void Update()
+    {
+        MoveEndPiece();
+    }
+
+    //spawns the 2nd to last section of the hallway at the position in front of the 2nd section
+    public void SpawnNextSection()
+    {
+        Vector3 spawnPos = new Vector3(
+            repeatedSectionPrefab.transform.position.x,
+            repeatedSectionPrefab.transform.position.y,
+            nextSpawnZ
+        );
+
+        Instantiate(repeatedSectionPrefab, spawnPos, repeatedSectionPrefab.transform.rotation);
+
+        nextSpawnZ += sectionLength;
+        spawnedSections++;
+    }
+
+    //moves the end piece at a certain distance from the player
+    void MoveEndPiece()
+    {
+        Vector3 endPos = endPiece.position;
+        endPos.z = player.position.z + endDistanceAhead;
+        endPiece.position = endPos;
+    }
+}
