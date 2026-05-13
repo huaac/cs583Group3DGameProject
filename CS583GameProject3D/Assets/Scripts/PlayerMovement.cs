@@ -28,11 +28,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
-    public Animator animController;
+    private Animator animController;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        animController = GetComponentInChildren<Animator>();
+
         rb.freezeRotation = true;
         readyToJump = true;
     }

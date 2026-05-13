@@ -7,12 +7,14 @@ public class FallingTrap : MonoBehaviour
 
     public float fallDelay = 0.5f;
 
-    public string trapID;
+    private string trapID;
 
     private bool triggered = false;
 
     void Start()
     {
+        trapID = gameObject.name;
+
         if (PlayerPrefs.GetInt(trapID, 0) == 1)
         {
             gameObject.SetActive(false);
@@ -28,6 +30,7 @@ public class FallingTrap : MonoBehaviour
             triggered = true;
 
             PlayerPrefs.SetInt(trapID, 1);
+            PlayerPrefs.Save();
 
             StartCoroutine(Fall());
         }
