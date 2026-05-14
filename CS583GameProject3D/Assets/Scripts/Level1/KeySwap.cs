@@ -7,10 +7,11 @@ public class KeySwap : MonoBehaviour
 
     public bool teleportDisabled = false;
 
-    [Header("Teleport Settings")]
-    public float radius = 5f;
-    public int maxAttempts = 10;
-    public LayerMask obstacleMask;
+    [Header("Teleport Points")]
+    public Transform teleportPoint1;
+    public Transform teleportPoint2;
+
+    private bool atPoint1 = true;
 
     void Start()
     {
@@ -24,9 +25,16 @@ public class KeySwap : MonoBehaviour
 
         if (!teleportDisabled)
         {
-            Vector3 newPos = GetSafeRandomPosition();
+            if (atPoint1)
+            {
+                transform.position = teleportPoint2.position;
+            }
+            else
+            {
+                transform.position = teleportPoint1.position;
+            }
 
-            transform.position = newPos;
+            atPoint1 = !atPoint1;
         }
         else
         {
@@ -35,30 +43,5 @@ public class KeySwap : MonoBehaviour
             PlayerInfo.firstLoad = true;
             SceneManager.LoadScene("Level2");
         }
-    }
-
-    Vector3 GetSafeRandomPosition()
-    {
-        for (int i = 0; i < maxAttempts; i++)
-        {
-            Vector2 rand = Random.insideUnitCircle * radius;
-
-            Vector3 candidate = new Vector3(
-                player.position.x + rand.x,
-                transform.position.y,
-                player.position.z + rand.y
-            );
-
-            // check if space is free
-            Collider[] hits = Physics.OverlapSphere(candidate, 0.5f, obstacleMask);
-
-            if (hits.Length == 0)
-            {
-                return candidate;
-            }
-        }
-
-        // fallback if all fail
-        return transform.position;
     }
 }
